@@ -32,22 +32,22 @@
         };
         combo_lauml {
             timeout-ms = <50>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
             bindings = <&kp RA(A)>;
         };
         combo_louml {
             timeout-ms = <50>;
-            key-positions = <21 23>;
+            key-positions = <20 22>;
             bindings = <&kp RA(O)>;
         };
         combo_luuml {
             timeout-ms = <50>;
-            key-positions = <21 24>;
+            key-positions = <20 23>;
             bindings = <&kp RA(U)>;
         };
         combo_lsuml {
             timeout-ms = <50>;
-            key-positions = <21 25>;
+            key-positions = <20 24>;
             bindings = <&kp RA(S)>;
         };
     };
