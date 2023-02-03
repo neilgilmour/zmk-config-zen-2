@@ -12,6 +12,48 @@
 #define _ADJUST 7
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        // Umlauts; requires EUR keymap
+        combo_uauml {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp RA(LS(A))>;
+        };
+        combo_uouml {
+            timeout-ms = <50>;
+            key-positions = <0 2>;
+            bindings = <&kp RA(LS(O))>;
+        };
+        combo_uuuml {
+            timeout-ms = <50>;
+            key-positions = <0 3>;
+            bindings = <&kp RA(LS(U))>;
+        };
+        combo_lauml {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp RA(A)>;
+        };
+        combo_louml {
+            timeout-ms = <50>;
+            key-positions = <21 23>;
+            bindings = <&kp RA(O)>;
+        };
+        combo_luuml {
+            timeout-ms = <50>;
+            key-positions = <21 24>;
+            bindings = <&kp RA(U)>;
+        };
+        combo_lsuml {
+            timeout-ms = <50>;
+            key-positions = <21 25>;
+            bindings = <&kp RA(S)>;
+        };
+    };
+};
+
+/ {
   chosen {
     //zmk,matrix_transform = &default_transform;
     zmk,matrix_transform = &five_column_transform;
