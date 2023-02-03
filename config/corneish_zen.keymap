@@ -88,8 +88,8 @@
                         label = "NAVI";
                         bindings = <
    &none      &none      &none       &none       &none  &kp K_REDO  &kp LC(V)    &kp LC(C)   &kp LC(X)  &kp LC(Z)
-   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none  &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT  &kp CAPS
-   &kp RGUI   &kp RALT   &kp RCTRL   &kp RSHFT   &none  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END    &kp INS
+   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none  &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT  &caps_word
+   &kp RGUI   &sk RALT   &sk RCTRL   &sk RSHFT   &none  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END    &kp INS
               &trans     &trans      &trans                         &trans       &trans      &trans
                         >;
                 };
@@ -128,7 +128,7 @@
                         label = "MEDIA";
                         bindings = <
    &none      &none      &none       &none       &none      &kp K_REDO  &kp K_PASTE   &kp K_COPY    &kp K_CUT   &kp K_UNDO
-   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp K_PREV  &kp K_VOL_DN  &kp K_VOL_UP  &kp K_NEXT  &none
+   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp K_PREV  &kp K_VOL_DN  &kp K_VOL_UP  &kp K_NEXT  &kp K_MUTE
    &none      &none      &none       &none       &none      &none       &none         &none         &none       &none
               &trans     &trans      &trans                             &trans        &trans        &trans
                         >;
@@ -137,10 +137,10 @@
                 adjust_layer {
                         label = "ADJUST";
                         bindings = <
-   &kp F12    &kp F7     &kp F8      &kp F9      &kp PSCRN        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none
-   &kp F11    &kp F4     &kp F5      &kp F6      &kp SLCK         &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI
-   &kp F10    &kp F1     &kp F2      &kp F3      &kp PAUSE_BREAK  &none       &none         &none         &none         &none
-              &trans     &trans      &trans                                   &trans        &trans        &trans
+   &kp F12    &kp F7       &kp F8      &kp F9      &kp PSCRN        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
+   &kp F11    &kp F4       &kp F5      &kp F6      &kp SLCK         &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI
+   &kp F10    &kp F1       &kp F2      &kp F3      &kp PAUSE_BREAK  &none       &none         &none         &none         &none
+              &bootloader  &trans      &trans                                   &trans        &trans        &bootloader
                         >;
                 };
 
