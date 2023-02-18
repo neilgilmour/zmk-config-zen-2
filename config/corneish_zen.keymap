@@ -3,13 +3,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define _DEFAULT 0
-#define _GAME 1
-#define _NAVI 2
-#define _SYMBOL 3
-#define _NUMBER 4
-#define _MOUSE 5
-#define _MEDIA 6
-#define _ADJUST 7
+#define _NAVI 1
+#define _SYMBOL 2
+#define _NUMBER 3
+#define _MEDIA 4
+#define _FUNC 5
 
 #define TAPPING_TERM 150
 #define QUICK_TAP 200
@@ -23,41 +21,31 @@
 / {
     combos {
         compatible = "zmk,combos";
-        // Umlauts; requires EUR keymap
-        combo_uauml {
+
+        combo_del {
             timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp RA(LS(A))>;
+            key-positions = <7 8 9>;
+            bindings = <&kp BSPC>;
         };
-        combo_uouml {
+        combo_quote {
             timeout-ms = <50>;
-            key-positions = <0 2>;
-            bindings = <&kp RA(LS(O))>;
+            key-positions = <17 18 19>;
+            bindings = <&kp SQT>;
         };
-        combo_uuuml {
+        combo_grave {
             timeout-ms = <50>;
-            key-positions = <0 3>;
-            bindings = <&kp RA(LS(U))>;
+            key-positions = <27 28 29>;
+            bindings = <&kp GRAVE>;
         };
-        combo_lauml {
+        combo_tab {
             timeout-ms = <50>;
-            key-positions = <20 21>;
-            bindings = <&kp RA(A)>;
+            key-positions = <1 2 3>;
+            bindings = <&kp TAB>;
         };
-        combo_louml {
+        combo_esc {
             timeout-ms = <50>;
-            key-positions = <20 22>;
-            bindings = <&kp RA(O)>;
-        };
-        combo_luuml {
-            timeout-ms = <50>;
-            key-positions = <20 23>;
-            bindings = <&kp RA(U)>;
-        };
-        combo_lsuml {
-            timeout-ms = <50>;
-            key-positions = <20 24>;
-            bindings = <&kp RA(S)>;
+            key-positions = <11 12 13>;
+            bindings = <&kp ESC>;
         };
     };
 };
@@ -95,19 +83,9 @@
                         label = "QWERTY";
                         bindings = <
    &kp Q      &kp W      &kp E       &kp R       &kp T   &kp Y &kp U        &kp I        &kp O      &kp P
-   &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm LSHFT J  &hm LCTRL K  &hm LALT L &hm LGUI SQT
+   &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm LSHFT J  &hm LCTRL K  &hm LALT L &hm LGUI SEMI
    &kp Z      &kp X      &kp C       &kp V       &kp B   &kp N &kp M        &kp COMMA    &kp DOT    &kp FSLH
-              &lt _MEDIA ESC  &lt _NAVI BSPC  &lt _MOUSE TAB  &lt _ADJUST RET  &lt _SYMBOL SPC  &lt _NUMBER DEL
-                        >;
-                };
-
-                game_layer {
-                        label = "GAME";
-                        bindings = <
-   &kp Q      &kp W      &kp E       &kp R       &kp T   &kp Y &kp U        &kp I        &kp O      &kp P
-   &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G   &kp H &mt LSHFT J  &mt LCTRL K  &mt LALT L &mt LGUI SQT
-   &kp Z      &kp X      &kp C       &kp V       &kp B   &kp N &kp M        &kp COMMA    &kp DOT    &kp FSLH
-              &kp LGUI   &mo 1       &kp SPACE           &kp RET            &mo 2        &kp RALT
+              &lt _MEDIA ESC  &lt _NAVI BSPC  &lt _MOUSE SPC  &lt _ADJUST RET  &lt _SYMBOL TAB  &lt _NUMBER DEL
                         >;
                 };
 
@@ -141,33 +119,25 @@
                         >;
                 };
 
-                mouse_layer {
-                        label = "MOUSE";
-                        bindings = <
-   &none      &none      &none       &none       &none      &none  &none        &none        &none      &none
-   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &none  &none        &none        &none      &none
-   &none      &none      &none       &none       &none      &none  &none        &none        &none      &none
-              &trans     &trans      &trans                        &trans       &trans       &trans
-                        >;
-                };
+
 
                 media_layer {
                         label = "MEDIA";
                         bindings = <
-   &none      &none      &none       &none       &none      &kp K_REDO  &kp K_PASTE   &kp K_COPY    &kp K_CUT   &kp K_UNDO
-   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp K_PREV  &kp K_VOL_DN  &kp K_VOL_UP  &kp K_NEXT  &kp K_MUTE
-   &none      &none      &none       &none       &none      &none       &none         &none         &none       &none
+   &none      &none      &none       &none       &none      &kp XXX     &kp XXX   &kp XXX    &kp XXX   &kp XXX
+   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp K_MUTE
+   &none      &none      &none       &none       &none      &kp C_PP    &none         &none         &none       &none
               &trans     &trans      &trans                             &trans        &trans        &trans
                         >;
                 };
 
-                adjust_layer {
-                        label = "ADJUST";
+                function_layer {
+                        label = "FUNC";
                         bindings = <
-   &kp F12    &kp F7       &kp F8      &kp F9      &kp PSCRN        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-   &kp F11    &kp F4       &kp F5      &kp F6      &kp SLCK         &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI
-   &kp F10    &kp F1       &kp F2      &kp F3      &kp PAUSE_BREAK  &none       &none         &none         &none         &none
-              &bootloader  &trans      &trans                                   &trans        &trans        &bootloader
+   &kp F1     &kp F2       &kp F3      &kp F4      &kp F5        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
+   &kp F6     &kp F7       &kp F8      &kp F9      &kp F9        &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI
+   &kp F10    &kp F11      &kp F12     &kp F13     &kp F14       &none       &none         &none         &none         &none
+              &bootloader  &trans      &trans                                &trans        &trans        &bootloader
                         >;
                 };
 
