@@ -124,7 +124,7 @@
                 media_layer {
                         label = "MEDIA";
                         bindings = <
-   &none      &none      &none       &none       &none      &kp XXX     &kp XXX   &kp XXX    &kp XXX   &kp XXX
+   &none      &none      &none       &none       &none      &none      &none   &none    &none   &none
    &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp K_MUTE
    &none      &none      &none       &none       &none      &kp C_PP    &none         &none         &none       &none
               &trans     &trans      &trans                             &trans        &trans        &trans
