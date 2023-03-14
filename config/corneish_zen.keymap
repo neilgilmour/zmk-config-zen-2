@@ -9,7 +9,7 @@
 #define _MEDIA 4
 #define _FUNC 5
 
-#define TAPPING_TERM 150
+#define TAPPING_TERM 100
 #define QUICK_TAP 200
 
 /* Key index
