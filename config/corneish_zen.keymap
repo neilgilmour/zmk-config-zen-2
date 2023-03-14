@@ -9,6 +9,9 @@
 #define _MEDIA 4
 #define _FUNC 5
 
+#define HYP LS(LC(LA(LGUI)))
+#define HYPER(key) LS(LC(LA(LG(key))))
+
 #define TAPPING_TERM 100
 #define QUICK_TAP 200
 
@@ -55,6 +58,12 @@
     quick-tap-ms = <QUICK_TAP>;
 };
 
+&mt {
+    tapping-term-ms = <TAPPING_TERM>;
+    quick-tap-ms = <QUICK_TAP>;
+};
+
+
 / {
     behaviors {
         hm: homerow_mods {
@@ -85,7 +94,7 @@
    &kp Q      &kp W      &kp E       &kp R       &kp T   &kp Y &kp U        &kp I        &kp O      &kp P
    &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm LSHFT J  &hm LCTRL K  &hm LALT L &hm LGUI SEMI
    &kp Z      &kp X      &kp C       &kp V       &kp B   &kp N &kp M        &kp COMMA    &kp DOT    &kp FSLH
-              &lt _MEDIA ESC  &lt _NAVI BSPC  &lt _NUMBER SPC  &lt _FUNC RET  &lt _SYMBOL TAB  &lt _NUMBER DEL
+              &lt _MEDIA ESC  &lt _SYMBOL BSPC  &mt HYP SPC  &lt _FUNC RET  &lt _NAVI TAB  &lt _NUMBER DEL
                         >;
                 };
 
