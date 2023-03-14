@@ -113,7 +113,7 @@
                         bindings = <
    &kp GRAVE  &kp AMPS  &kp STAR   &kp MINUS   &none      &none     &kp UNDER &kp LT    &kp GT    &kp TILDE
    &kp COLON  &kp DLLR  &kp PRCNT  &kp CARET   &kp EQUAL  &kp PLUS  &kp LPAR  &kp LBKT  &kp LBRC  &kp SEMI
-   &kp PIPE   &kp EXCL  &kp AT     &kp HASH    &none      &none     &kp RPAR  &kp RBKT  &kp RBRC  &kp BSLH
+   &kp PIPE   &kp EXCL  &kp AT     &kp NUHS    &none      &none     &kp RPAR  &kp RBKT  &kp RBRC  &kp BSLH
               &trans    &trans     &trans                           &trans    &trans    &trans
                         >;
                 };
@@ -127,7 +127,6 @@
              &trans  &trans  &trans                    &trans     &trans     &trans
                         >;
                 };
-
 
 
                 media_layer {
