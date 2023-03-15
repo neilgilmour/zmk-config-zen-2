@@ -12,8 +12,8 @@
 #define HYP LS(LC(LA(LGUI)))
 #define HYPER(key) LS(LC(LA(LG(key))))
 
-#define TAPPING_TERM 100
-#define QUICK_TAP 200
+#define TAPPING_TERM 200
+#define QUICK_TAP 149
 
 /* Key index
  0  1  2  3  4         5  6  7  8  9
@@ -94,7 +94,7 @@
    &kp Q      &kp W      &kp E       &kp R       &kp T   &kp Y &kp U        &kp I        &kp O      &kp P
    &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm LSHFT J  &hm LCTRL K  &hm LALT L &hm LGUI SEMI
    &kp Z      &kp X      &kp C       &kp V       &kp B   &kp N &kp M        &kp COMMA    &kp DOT    &kp FSLH
-          &lt _MEDIA ESC  &lt _SYMBOL BSPC  &mt HYP SPC  &lt _FUNC RET  &lt _NAVI TAB  &lt _NUMBER DEL
+          &lt _MEDIA ESC  &lt _SYMBOL BSPC  &mt HYP SPC  &lt _NAVI RET  &lt _NUMBER TAB  &lt _FUNC DEL
                         >;
                 };
 
