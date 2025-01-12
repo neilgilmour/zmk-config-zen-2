@@ -9,129 +9,124 @@
 #define _MEDIA 4
 #define _FUNC 5
 
-#define HYP LS(LC(LA(LGUI)))
+#define _HYP LS(LC(LA(LGUI)))
 #define HYPER(key) LS(LC(LA(LG(key))))
 
 #define TAPPING_TERM 200
 #define QUICK_TAP 149
 
-/* Key index
- 0  1  2  3  4         5  6  7  8  9
-10 11 12 13 14        15 16 17 18 19
-20 21 22 23 24        25 26 27 28 29
-        30 31 32    33 34 35         */
-
-/ {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_quote {
-            timeout-ms = <50>;
-            key-positions = <17 18 19>;
-            bindings = <&kp SQT>;
-        };
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <11 12 13>;
-            bindings = <&kp ESC>;
-        };
-    };
-};
 
 &lt {
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <QUICK_TAP>;
+	tapping-term-ms = <TAPPING_TERM>;
+	quick-tap-ms = <QUICK_TAP>;
 };
 
 &mt {
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <QUICK_TAP>;
+	tapping-term-ms = <TAPPING_TERM>;
+	quick-tap-ms = <QUICK_TAP>;
 };
 
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <TAPPING_TERM>;
-            quick-tap-ms = <QUICK_TAP>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
-};
+	chosen {
+		zmk,matrix_transform = &five_column_transform;
+	};
+	/* Key index
+	0  1  2  3  4         5  6  7  8  9
+	10 11 12 13 14        15 16 17 18 19
+	20 21 22 23 24        25 26 27 28 29
+	30 31 32    33 34 35         */
+	
+	combos {
+		compatible = "zmk,combos";
+		
+		combo_quote {
+			timeout-ms = <50>;
+			key-positions = <17 18 19>;
+			bindings = <&kp SQT>;
+		};
+		combo_esc {
+			timeout-ms = <50>;
+			key-positions = <11 12 13>;
+			bindings = <&kp ESC>;
+		};
+	};
 
-/ {
-  chosen {
-    zmk,matrix_transform = &five_column_transform;
-  };
-};
+	behaviors {
+		hm: homerow_mods {
+			compatible = "zmk,behavior-hold-tap";
+			label = "HOMEROW_MODS";
+			#binding-cells = <2>;
+			tapping-term-ms = <TAPPING_TERM>;
+			quick-tap-ms = <QUICK_TAP>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+	};
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-                        display-name = "QWERTY";
-                        bindings = <
-   &kp Q      &kp W      &kp E       &kp R       &kp T   &kp Y &kp U        &kp I        &kp O      &kp P
-   &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm LSHFT J  &hm LCTRL K  &hm LALT L &hm LGUI SEMI
-   &kp Z      &kp X      &kp C       &kp V       &kp B   &kp N &kp M        &kp COMMA    &kp DOT    &kp FSLH
-          &lt _MEDIA ESC  &lt _SYMBOL BSPC  &mt HYP SPACE  &lt _NAVI RET  &lt _NUMBER TAB  &lt _FUNC DEL
-                        >;
-                };
-
-                navi_layer {
-                        display-name = "NAVI";
-                        bindings = <
-   &none      &none      &none       &none       &none  &kp K_REDO  &kp LC(V)    &kp LC(C)   &kp LC(X)  &kp LC(Z)
-   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none  &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT  &caps_word
-   &kp RGUI   &sk RALT   &sk RCTRL   &sk RSHFT   &none  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END    &kp INS
-              &trans     &trans      &trans                         &trans       &trans      &trans
-                        >;
-                };
-
-                symbol_layer {
-                        display-name = "SYMBOL";
-                        bindings = <
-   &kp GRAVE  &kp AMPS  &kp STAR   &kp MINUS   &kp NUBS   &kp KC_NONUS_HASH     &kp UNDER &kp LT    &kp GT    &kp TILDE
-   &kp COLON  &kp DLLR  &kp PRCNT  &kp CARET   &kp EQUAL  &kp PLUS  &kp LPAR  &kp LBKT  &kp LBRC  &kp SEMI
-   &kp PIPE   &kp EXCL  &kp AT     &kp HASH    &kp NUHS   &none     &kp RPAR  &kp RBKT  &kp RBRC  &kp BSLH
-              &trans    &trans     &trans                           &trans    &trans    &trans
-                        >;
-                };
-
-                number_layer {
-                        display-name = "NUMBER";
-                        bindings = <
-   &kp FSLH  &kp N7  &kp N8  &kp N9  &kp STAR   &none  &none      &none      &none     &none
-   &kp N0    &kp N4  &kp N5  &kp N6  &kp MINUS  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
-   &kp DOT   &kp N1  &kp N2  &kp N3  &kp PLUS   &none  &none      &none      &none     &none
-             &trans  &trans  &trans                    &trans     &trans     &trans
-                        >;
-                };
-
-
-                media_layer {
-                        display-name = "MEDIA";
-                        bindings = <
-   &none      &none      &none       &none       &none      &none      &none   &none    &none   &none
-   &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp K_MUTE
-   &none      &none      &none       &none       &none      &kp C_PP    &none         &none         &none       &none
-              &trans     &trans      &trans                             &trans        &trans        &trans
-                        >;
-                };
-
-                function_layer {
-                        display-name = "FUNC";
-                        bindings = <
-   &kp F1     &kp F2       &kp F3      &kp F4      &kp F5        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-   &kp F6     &kp F7       &kp F8      &kp F9      &kp F10        &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI
-   &kp F11    &kp F12      &kp F13     &kp F14     &kp F15       &none       &none         &none         &none         &none
-              &bootloader  &trans      &trans                                &trans        &trans        &bootloader
-                        >;
-                };
-
-        };
+	keymap {
+		compatible = "zmk,keymap";
+		
+		default_layer {
+			label = "QWERTY";
+			bindings = <
+			&kp Q      &kp W      &kp E       &kp R       &kp T   &kp Y &kp U        &kp I        &kp O      &kp P
+			&hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm LSHFT J  &hm LCTRL K  &hm LALT L &hm LGUI SEMI
+			&kp Z      &kp X      &kp C       &kp V       &kp B   &kp N &kp M        &kp COMMA    &kp DOT    &kp FSLH
+			&lt _MEDIA ESC  &lt _SYMBOL BSPC  &mt _HYP SPC  &lt _NAVI RET  &lt _NUMBER TAB  &lt _FUNC DEL
+			>;
+		};
+		
+		navi_layer {
+			label = "NAVI";
+			bindings = <
+			&none      &none      &none       &none       &none  &kp K_REDO  &kp LC(V)    &kp LC(C)   &kp LC(X)  &kp LC(Z)
+			&kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none  &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT  &caps_word
+			&kp RGUI   &sk RALT   &sk RCTRL   &sk RSHFT   &none  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END    &kp INS
+			&trans     &trans      &trans                         &trans       &trans      &trans
+			>;
+		};
+		
+		symbol_layer {
+			label = "SYMBOL";
+			bindings = <
+			&kp GRAVE  &kp AMPS  &kp STAR   &kp MINUS   &kp NUBS   &kp KC_NONUS_HASH     &kp UNDER &kp LT    &kp GT    &kp TILDE
+			&kp COLON  &kp DLLR  &kp PRCNT  &kp CARET   &kp EQUAL  &kp PLUS  &kp LPAR  &kp LBKT  &kp LBRC  &kp SEMI
+			&kp PIPE   &kp EXCL  &kp AT     &kp HASH    &kp NUHS   &none     &kp RPAR  &kp RBKT  &kp RBRC  &kp BSLH
+			&trans    &trans     &trans                           &trans    &trans    &trans
+			>;
+		};
+		
+		number_layer {
+			label = "NUMBER";
+			bindings = <
+			&kp FSLH  &kp N7  &kp N8  &kp N9  &kp STAR   &none  &none      &none      &none     &none
+			&kp N0    &kp N4  &kp N5  &kp N6  &kp MINUS  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+			&kp DOT   &kp N1  &kp N2  &kp N3  &kp PLUS   &none  &none      &none      &none     &none
+			&trans  &trans  &trans                    &trans     &trans     &trans
+			>;
+		};
+		
+		
+		media_layer {
+			label = "MEDIA";
+			bindings = <
+			&none      &none      &none       &none       &none      &none      &none   &none    &none   &none
+			&kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none      &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp K_MUTE
+			&none      &none      &none       &none       &none      &kp C_PP    &none         &none         &none       &none
+			&trans     &trans      &trans                             &trans        &trans        &trans
+			>;
+		};
+		
+		function_layer {
+			label = "FUNC";
+			bindings = <
+			&kp F1     &kp F2       &kp F3      &kp F4      &kp F5        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
+			&kp F6     &kp F7       &kp F8      &kp F9      &kp F10        &none       &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI
+			&kp F11    &kp F12      &kp F13     &kp F14     &kp F15       &none       &none         &none         &none         &none
+			&bootloader  &trans      &trans                                &trans        &trans        &bootloader
+			>;
+		};
+		
+	};
 };
